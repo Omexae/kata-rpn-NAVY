@@ -4,10 +4,8 @@ import java.util.*;
 
 /**
  * Hello world!
- *
  */
-public class RpnCalculator
-{
+public class RpnCalculator {
 
     private final List<String> tokens;
     private final List<Double> stacks = new ArrayList<>();
@@ -20,18 +18,20 @@ public class RpnCalculator
         return Collections.unmodifiableList(tokens);
     }
 
-    public Double doCalculation(String operator) {
-        var result = stacks.stream().reduce(0d, (a, b) -> switch (operator) {
+    public void doCalculation(String operator) {
+        var a = this.stacks.remove(0);
+        var b = this.stacks.remove(0);
+
+        var result = switch (operator) {
             case "+" -> a + b;
             case "-" -> a - b;
             case "*" -> a * b;
-            case "/" -> a / b;
+            case "/" -> b / a;
             default -> throw new IllegalArgumentException("Unknown operator");
-        });
+        };
+
         this.stacks.clear();
         this.stacks.add(result);
-
-        return result;
     }
 
     public Number run() {
@@ -43,10 +43,10 @@ public class RpnCalculator
             try {
                 stacks.add(Double.parseDouble(token));
             } catch (NumberFormatException e) {
-                return doCalculation(token);
+                doCalculation(token);
             }
         }
 
-        return null;
+        return stacks.get(0);
     }
 }

@@ -25,10 +25,18 @@ class RpnCalculatorTest {
     }
 
     @Test
-    public void should_return_20_plus_2_equals_22(){
+    public void when_20_plus_2_should_return_22() {
         var input = "20 2 +";
         var calculator = new RpnCalculator(input);
 
-       assertEquals(22d, calculator.run());
+        assertEquals(22d, calculator.run());
+    }
+
+    @Test
+    public void when_complex_calculation_should_return_correct_result() {
+        var input = "4 2 + 3 -";
+        var calculator = new RpnCalculator(input);
+
+        assertEquals(3d, calculator.run());
     }
 }
