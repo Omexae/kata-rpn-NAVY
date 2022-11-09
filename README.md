@@ -16,8 +16,13 @@ To evaluate a RPN expression, use the following algorithm:
 * Keep a list of values (called a *stack*)
 * Split the input on the spaces to get a list of *tokens*
 * For each token:
+<<<<<<< HEAD
   * If the token can be parsed as a number, push it to the stack
   * Otherwise, pop two values from the stack, compute the result of the operation and push it to the stack
+=======
+    * If the token can be parsed as a number, push it to the stack
+    * Otherwise, pop two values from the stack, compute the result of the operation and push it to the stack
+>>>>>>> 3d3479fbef23c51e2384a2705277d01468a81d35
 
 Examples:
 
