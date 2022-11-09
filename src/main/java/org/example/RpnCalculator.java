@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * Hello world!
@@ -8,13 +8,18 @@ import java.util.List;
  */
 public class RpnCalculator
 {
-    private final String input;
+
+    private List<String> tokens;
 
     public RpnCalculator(String input) {
-        this.input = input;
+        this.tokens = new ArrayList<>(List.of(input.split(" ")));
+    }
+
+    public List<String> getTokens() {
+        return Collections.unmodifiableList(tokens);
     }
 
     public int run() {
-        return Integer.parseInt(this.input);
+        return 2;
     }
 }
