@@ -12,7 +12,7 @@ class RpnCalculatorTest {
         var input = "2";
         var calculator = new RpnCalculator(input);
 
-        assertEquals(2, calculator.run());
+        assertEquals(2d, calculator.run());
     }
 
     @Test
@@ -25,10 +25,10 @@ class RpnCalculatorTest {
     }
 
     @Test
-    public void should_return_2_plus_2_equals_4(){
-        var input = "2 2 +";
+    public void should_return_20_plus_2_equals_22(){
+        var input = "20 2 +";
         var calculator = new RpnCalculator(input);
 
-        // TODO
+       assertEquals(22d, calculator.run());
     }
 }
